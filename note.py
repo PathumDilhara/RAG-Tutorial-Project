@@ -51,8 +51,7 @@ chat_models	                                    langchain-openai, langchain-anth
 # Free HuggingFaceEmbeddings
 '''
 First, install the required package:
-pip install sentence-transformers
-
+    pip install sentence-transformers
 
 Best Overall: All-MiniLM-L6-v2
     Size: 80MB (small, runs on any computer)
@@ -71,4 +70,50 @@ Lightest & Fastest: all-MiniLM-L12-v2
     Speed: Very fast
     Quality: Medium (80% as good)
     Memory: ~700MB RAM
+'''
+
+# Embedding models openai vs free
+'''Sentence-Transformers (Open-source embeddings)
+
+    ✔ fully open-source
+    ✔ downloadable
+    ✔ runnable locally (offline)
+    ✔ stored in your machine cache or saved_models/
+    can fully use them like a “local embedding engine”
+
+OpenAI embeddings
+
+    ❌ NOT downloadable
+    ❌ NOT runnable locally
+    ❌ NOT open-source
+    They only run : via OpenAI API (cloud servers)
+'''
+
+# ollama LLM installation
+'''Install Ollama
+
+Download and install for Windows > https://ollama.com/download
+    During install:
+        - keep default settings
+        - allow PATH setup if asked
+
+Restart terminal
+
+Verify install( go to installed dir )
+    ollama --version >>> ollama 0.xx.x
+
+Now pull model (this will donwload the model)
+    ollama pull llama3 OR ollama run llama3
+
+Model will be stored in
+    C:\Users\<you>\.ollama\models
+
+After setup can use in Python
+
+    pip install langchain-ollama
+    
+    from langchain_ollama import ChatOllama
+
+    llm = ChatOllama(model="llama3")
+    print(llm.invoke("hello").content)
 '''
